@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div>Bens per click: <span id="bens-per-click">1</span></div>
+        <div>Bens per 5 Seconds: <span id="bens-per-5s">0</span></div>
+        <img id="benimg" src="https://images.sftcdn.net/images/t_app-icon-m/p/6291b348-9b32-11e6-bf94-00163ec9f5fa/1046016500/talking-ben-logo.png" alt="Ben">
+        <div id="counter">0</div>
+        <audio id="benaudio" src="assets/ben-neu.ogg"></audio>
+    </div>
+
+    <div class="upgrade-wrapper">
+        <h2>Upgrades</h2>
+        <div class="upgrade-1">
+            <div class="upgrade-text">
+                <p class="upgrade-p">+1 Ben per Click <br>
+                                    Cost : <span class="upgrade-1-cost">100</span> Bens
+                </p>
+                <button id="points">Buy</button>
+            </div>
+        </div>
+        <div class="upgrade-2">
+            <div>
+                <p class="upgrade-p">+1 Ben per 5 Seconds <br>
+                                    Cost: <span id="upgrade_2_cost">100</span>
+                </p>
+                <button id="upgrade_2_buy">Buy</button>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
