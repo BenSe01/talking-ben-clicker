@@ -20,7 +20,7 @@ let newCount = 0;
 
 
 // Adds Points when pressing Spacebar
-document.addEventListener("keydown", (event) => {
+document.addEventListener("keyup", (event) => {
     if (event.keyCode == 32) {
         benAUDIO.play();
         console.log("spacebar pressed")
