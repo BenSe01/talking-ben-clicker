@@ -1,3 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background: url(assets/meindersstraße.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: grey;
+    font-family: Poppins, sans-serif;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5rem;
+    border-bottom: 0.25rem solid black;
+    text-align: center;
+}
+
+/* Holds Everything */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: rgba(71, 154, 182, 0.5);
+    border-radius: 2rem;
+    min-height: 55rem;
+}
+
+/* Holds img + bens per click/per sec text */
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -6,7 +35,7 @@
     margin: 0 auto;
 }
 
-
+/* Current Bens */
 #counter {
     margin-top: 2rem;
     font-size: 5rem;
@@ -17,59 +46,59 @@
     border-radius: 50%;
 }
 
-body {
-    background-color: grey;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-#reset {
-    margin-top: 1rem;
-    padding: 2rem;
-    border-radius: 25%;
-}
-
-
-#reset:hover {
-    transform: translate(0, -0.25rem);
-    background-color: blanchedalmond;
-}
-
 #benimg:active {
     transform: translate(0, -0.25rem);
 }
 
+/* Holds all uprades */
 .upgrade-wrapper {
-    display: flex;
-    align-items: center;
     margin: 0 auto;
     margin-top: 2rem;
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .upgrade-1, .upgrade-2 {
-    max-width: 200px;
+    max-width: 160px;
+    text-align: center;
 }
 
 .upgrade-p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
 }
 
+button {
+    font-size: 1rem;
+    align-self: flex-end;
+}
+
+button:hover {
+    transform: translate(0, -0.25rem);
+    background-color: aliceblue;
+}
+
+/* Upgrade 1 Buy Button */
 #points {
     padding: 1.5rem;
     background-color: white;
     border-radius: 25%;
+    margin-top: 1.9rem;
 }
 
-h2 {
-    margin: 0;
-    padding: 0;
-    font-size: 2.5rem;
-    border-bottom: 0.25rem solid black;
-}
 
+/* Upgrade 2 Buy Button */
 #upgrade_2_buy {
     padding: 1.5rem;
     background-color: white;
     border-radius: 25%;
+}
+
+
+@media only screen and (max-width: 550px) {
+    body {
+        background-position-x: -300px;
+    }
 }

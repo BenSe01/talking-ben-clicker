@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 </head>
-<body>
+<body ontouchstart="">
+  <div class="container">
     <div class="wrapper">
         <div>Bens per click: <span id="bens-per-click">1</span></div>
         <div>Bens per 5 Seconds: <span id="bens-per-5s">0</span></div>
@@ -16,24 +17,30 @@
         <audio id="benaudio" src="assets/ben-neu.ogg"></audio>
     </div>
 
+    <h2>Upgrades</h2>
     <div class="upgrade-wrapper">
-        <h2>Upgrades</h2>
-        <div class="upgrade-1">
-            <div class="upgrade-text">
-                <p class="upgrade-p">+1 Ben per Click <br>
-                                    Cost : <span class="upgrade-1-cost">100</span> Bens
-                </p>
-                <button id="points">Buy</button>
+        <div class="upgrade_column_1">
+            <div class="upgrade upgrade-1">
+                <div class="upgrade-text">
+                    <p class="upgrade-p">+1 Ben per Click <br>
+                                        Cost : <span class="upgrade-1-cost">100</span> Bens
+                    </p>
+                    <button class="btns" id="points">Buy</button>
+                </div>
             </div>
         </div>
-        <div class="upgrade-2">
-            <div>
-                <p class="upgrade-p">+1 Ben per 5 Seconds <br>
-                                    Cost: <span id="upgrade_2_cost">100</span>
-                </p>
-                <button id="upgrade_2_buy">Buy</button>
+
+        <div class="upgrade_column_2">
+            <div class="upgrade upgrade-2">
+                <div>
+                    <p class="upgrade-p">+1 Ben per 5 Seconds <br>
+                                        Cost: <span id="upgrade_2_cost">100</span> Bens
+                    </p>
+                    <button class="btns" id="upgrade_2_buy">Buy</button>
+                </div>
             </div>
         </div>
     </div>
+  </div>
     </body>
 </html>
