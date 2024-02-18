@@ -3,7 +3,6 @@ const ben = document.querySelector("#benimg");
 const benAUDIO = document.querySelector("#benaudio");
 const yesAUDIO = document.querySelector("#yesaudio");
 const noAUDIO = document.querySelector("#noaudio");
-const hohohoAUDIO = document.querySelector("#hohohoaudio");
 const pointsBTN = document.querySelector("#points");
 const upgrd1COST = document.querySelector(".upgrade-1-cost")
 const bpc = document.querySelector("#bens-per-click");
@@ -20,6 +19,19 @@ let pointsPerClick = 1;
 let newCount = 0;
 
 
+// Adds Points when pressing Spacebar
+document.addEventListener("keydown", (event) => {
+    if (event.keyCode == 32) {
+        benAUDIO.play();
+        console.log("spacebar pressed")
+        newCount += pointsPerClick;
+        newCount = parseInt(newCount);
+        counter.textContent = newCount;
+        benAUDIO.resume();
+        AudioContext.resume();
+
+    }
+});
 
 
 // Adds Ben Points on Click
