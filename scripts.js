@@ -20,6 +20,7 @@ let newCount = 0;
 // Adds Ben Points on Click
 ben.addEventListener("click", function() {
     newCount += pointsPerClick;
+    newCount = parseInt(newCount);
     counter.textContent = newCount;
 });
 
@@ -31,11 +32,12 @@ function addPointsPerClick() {
     }else {
         pointsPerClick++;
         newCount -= upgrd1COST.textContent;
+        newCount = parseInt(newCount);
         bensperclick++;
         bpc.textContent = bensperclick;
         counter.textContent = newCount;
         upgrade_1_cost *= 1.25;
-        upgrd1COST.textContent = upgrade_1_cost;
+        upgrd1COST.textContent = parseInt(upgrade_1_cost);
     }
 }
 
@@ -60,6 +62,7 @@ const upgrade2BTN = document.querySelector("#upgrade_2_buy");
      }else if (upgrade_2_cost === 100) {
         setInterval(function() {
             newCount += bensPer5s;
+            newCount = parseInt(newCount);
             counter.textContent = newCount;
         }, 5000);
 
@@ -69,14 +72,15 @@ const upgrade2BTN = document.querySelector("#upgrade_2_buy");
         bp5s.textContent = bensPer5s;
 
         upgrade_2_cost *= 1.25;
-        upgrd2COST.textContent = upgrade_2_cost;
+        upgrd2COST.textContent = parseInt(upgrade_2_cost);
      }else {
         bensPer5s++;
         newCount -= upgrd2COST.textContent;
+        newCount = parseInt(newCount);
         counter.textContent = newCount;
         bp5s.textContent = bensPer5s;
-        upgrade_2_cost *= 2;
-        upgrd2COST.textContent = upgrade_2_cost;
+        upgrade_2_cost *= 1.25;
+        upgrd2COST.textContent = parseInt(upgrade_2_cost);
      }
  }
 
