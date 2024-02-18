@@ -22,6 +22,8 @@ ben.addEventListener("click", function() {
     newCount += pointsPerClick;
     newCount = parseInt(newCount);
     counter.textContent = newCount;
+    benAUDIO.resume();
+    AudioContext.resume();
 });
 
 
