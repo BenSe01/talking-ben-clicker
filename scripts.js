@@ -83,7 +83,7 @@ const upgrade2BTN = document.querySelector("#upgrade_2_buy");
             newCount += bensPer5s;
             newCount = parseInt(newCount);
             counter.textContent = newCount;
-        }, 5000);
+        }, 1000);
         yesAUDIO.play();
         bensPer5s++;
         newCount -= upgrd2COST.textContent;
