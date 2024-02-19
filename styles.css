@@ -9,6 +9,11 @@ body {
     font-family: Poppins, sans-serif;
 }
 
+h3 {
+    text-align: center;
+    border-bottom: 4px solid black;
+}
+
 h2 {
     margin: 0;
     padding: 0;
@@ -90,10 +95,14 @@ button:hover {
 
 
 /* Upgrade 2 Buy Button */
-#upgrade_2_buy {
+#upgrade_2_buy, #upgrade_3_buy {
     padding: 1.5rem;
     background-color: white;
     border-radius: 25%;
+}
+
+#upgrade_3_buy {
+    margin-left: 3rem;
 }
 
 

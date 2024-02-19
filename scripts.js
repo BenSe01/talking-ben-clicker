@@ -8,12 +8,14 @@ const upgrd1COST = document.querySelector(".upgrade-1-cost")
 const bpc = document.querySelector("#bens-per-click");
 const bp5s = document.querySelector("#bens-per-5s");
 const upgrd2COST = document.querySelector("#upgrade_2_cost");
+const upgrd3COST = document.querySelector("#upgrade_3_cost")
 
 let bensperclick = 1;
 let bensPer5s = 0;
 
 let upgrade_1_cost = 100;
-let upgrade_2_cost = 100
+let upgrade_2_cost = 100;
+let upgrade_3_cost = 200;
 
 let pointsPerClick = 1;
 let newCount = 0;
@@ -70,9 +72,9 @@ function playSound() {
 ben.addEventListener("click", playSound);
 
 
-
+let upgrade2Counter = 0;
 const upgrade2BTN = document.querySelector("#upgrade_2_buy");
-
+const upgrade3BTN = document.querySelector("#upgrade_3_buy")
 
 // Adds points every 5 Seconds based on Bens per 5 Seconds
  function addPointsPer5s() {
@@ -89,7 +91,7 @@ const upgrade2BTN = document.querySelector("#upgrade_2_buy");
         newCount -= upgrd2COST.textContent;
         counter.textContent = newCount;
         bp5s.textContent = bensPer5s;
-
+        upgrade2Counter++
         upgrade_2_cost *= 1.25;
         upgrd2COST.textContent = parseInt(upgrade_2_cost);
      }else {
@@ -101,7 +103,29 @@ const upgrade2BTN = document.querySelector("#upgrade_2_buy");
         bp5s.textContent = bensPer5s;
         upgrade_2_cost *= 1.25;
         upgrd2COST.textContent = parseInt(upgrade_2_cost);
+        upgrade2Counter++
      }
  }
 
 upgrade2BTN.addEventListener("click", addPointsPer5s);
+
+
+function upgrade3() {
+    if (upgrade2Counter === 0) {
+        alert("Please Buy Upgrade 2 first!")
+        noAUDIO.play();
+    }else if (newCount < upgrd3COST.textContent){
+        noAUDIO.play()
+    }else {
+       yesAUDIO.play();
+       bensPer5s += 3;
+       newCount -= upgrd3COST.textContent;
+       newCount = parseInt(newCount);
+       counter.textContent = newCount;
+       bp5s.textContent = bensPer5s;
+       upgrade_3_cost *= 1.25;
+       upgrd3COST.textContent = parseInt(upgrade_3_cost);
+    }
+}
+
+upgrade3BTN.addEventListener("click", upgrade3);
