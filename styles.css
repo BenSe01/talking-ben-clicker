@@ -47,6 +47,10 @@ html {
     border-color: red;
 }
 
+.buy-buttons, .data-buttons {
+    color: black;
+}
+
 .top-section > p {
     margin: 0;
     font-weight: bold;
