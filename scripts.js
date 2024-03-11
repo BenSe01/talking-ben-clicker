@@ -1,7 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
-
 const benAUDIO = document.getElementById("ben-audio");
 const benIMG = document.getElementById("ben-img");
 const BPC = document.getElementById("bens-per-click");
@@ -13,8 +12,6 @@ const pointCounter = document.getElementById("point-counter-container");
 let bensPerclick = 1;
 let bensPerSecond = 0;
 let currentPoints = 0;
-
-
 
 // Adds Points and Plays Audio on Click
 benIMG.addEventListener("click", () => {
@@ -36,7 +33,6 @@ document.addEventListener("keyup", (event) => {
        saveGame();
    }
 });
-
 
 
 // Upgrades
@@ -145,7 +141,7 @@ upgrade4BuyButton.addEventListener("click", () => {
    if(upgrade2Cost === 100) {
       alert("Buy Upgrade 2 first!");
       return;
-   }else if(currentPoints < upgrade3Cost) {
+   }else if(currentPoints < upgrade4Cost) {
       noAudio.play();
    }else {
    yesAudio.play();
@@ -162,8 +158,6 @@ upgrade4BuyButton.addEventListener("click", () => {
 
 
 // localStorage to save and load game data
-
-
 
 const saveGame = () => {
    const gameData = {
