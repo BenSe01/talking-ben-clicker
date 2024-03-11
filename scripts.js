@@ -79,7 +79,6 @@ upgrade2BuyButton.addEventListener("click", () => {
          currentPoints += bensPerSecond;
          currentPoints = parseInt(currentPoints);
          pointCounter.textContent = currentPoints;
-         saveGame();
       }, 1000);
 
       yesAudio.play();
@@ -171,7 +170,10 @@ const saveGame = () => {
       upgrade4Cost: upgrade4Cost,
    };
    localStorage.setItem("gameData", JSON.stringify(gameData));
+   console.log("Game Saved")
 };
+
+setInterval(saveGame, 60000);
 
 const loadGame = () => {
    const savedData = localStorage.getItem("gameData");
@@ -199,7 +201,6 @@ const loadGame = () => {
          currentPoints += bensPerSecond;
          currentPoints = parseInt(currentPoints);
          pointCounter.textContent = currentPoints;
-         saveGame();
       }, 1000);      
    }
 };
@@ -208,8 +209,13 @@ const loadGame = () => {
 const resetButton = document.getElementById("reset");
 
 const resetGame = () => {
-   localStorage.removeItem("gameData");
-   alert("reset");
+   const confirmReset = window.confirm("Are you sure? This will wipe your progress permanently.");
+
+   if(confirmReset) {
+      localStorage.removeItem("gameData");
+      alert("Game Reset!");
+      window.location.reload();
+    }
 }
 
 resetButton.addEventListener("click", resetGame);
@@ -217,3 +223,6 @@ resetButton.addEventListener("click", resetGame);
 
 loadGame();
 })
+
+
+
