@@ -22,6 +22,7 @@ benIMG.addEventListener("click", () => {
    currentPoints += bensPerclick;
    currentPoints = parseInt(currentPoints);
    pointCounter.textContent = currentPoints;
+   saveGame();
 })
 
 // Adds Points when pressing Spacebar
@@ -32,6 +33,7 @@ document.addEventListener("keyup", (event) => {
        currentPoints += bensPerclick;
        currentPoints = parseInt(currentPoints);
        pointCounter.textContent = currentPoints;
+       saveGame();
    }
 });
 
@@ -174,7 +176,6 @@ const saveGame = () => {
       upgrade4Cost: upgrade4Cost,
    };
    localStorage.setItem("gameData", JSON.stringify(gameData));
-   alert("Game Saved!");
 };
 
 const loadGame = () => {
@@ -207,9 +208,6 @@ const loadGame = () => {
    }
 };
 
-const saveButton = document.getElementById("save-storage");
-
-saveButton.addEventListener("click", saveGame);
 
 const resetButton = document.getElementById("reset");
 
