@@ -31,6 +31,20 @@ html {
     border-radius: 15%;
 }
 
+#mute-button {
+    padding: 5px;
+}
+
+.unmuted {
+    background-color: green;
+    border-color: green;
+}
+
+.muted {
+    background-color: red;
+    border-color: red;
+}
+
 .top-section > p {
     margin: 0;
     font-weight: bold;

@@ -13,6 +13,7 @@ let bensPerclick = 1;
 let bensPerSecond = 0;
 let currentPoints = 0;
 
+
 // Adds Points and Plays Audio on Click
 benIMG.addEventListener("click", () => {
    benAUDIO.play();
@@ -34,6 +35,41 @@ document.addEventListener("keyup", (event) => {
    }
 });
 
+
+// Mute Game
+
+const muteButton = document.getElementById("mute-button");
+let isMuted = false;
+
+
+function muteGame() {
+   benAUDIO.muted = true;
+   yesAudio.muted = true;
+   noAudio.muted = true
+   isMuted = true;
+}
+
+function unmuteGame() {
+   benAUDIO.muted = false;
+   yesAudio.muted = false;
+   noAudio.mute = false;
+   isMuted = false;
+}
+
+muteButton.addEventListener("click",() => {
+   if(isMuted) {
+      muteButton.classList.remove("muted");
+      muteButton.classList.add("unmuted");
+      muteButton.textContent = "Mute";
+      unmuteGame();
+   }else {
+      muteButton.classList.remove("unmuted");
+      muteButton.classList.add("muted");
+      muteButton.textContent = "Unmute"
+      muteGame();
+   }
+
+})
 
 // Upgrades
 
