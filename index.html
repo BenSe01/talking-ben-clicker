@@ -3,58 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talking Ben Clicker</title>
+    <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
-    <link rel="icon" type="image/x-icon" href="assets/ben-favicon.webp">
 </head>
-<body ontouchstart="">
-  <div class="container">
-    <div class="wrapper">
-        <div>Bens per click: <span id="bens-per-click">1</span></div>
-        <div>Bens per Second: <span id="bens-per-5s">0</span></div>
-        <img id="benimg" src="https://images.sftcdn.net/images/t_app-icon-m/p/6291b348-9b32-11e6-bf94-00163ec9f5fa/1046016500/talking-ben-logo.png" alt="Ben">
-        <div id="counter">0</div>
-        <audio id="benaudio" src="assets/ben-neu.ogg"></audio>
-        <audio id="yesaudio" src="assets/yes.ogg"></audio>
-        <audio id="noaudio" src="assets/no.ogg"></audio>
-    </div>
-
-    <h2>Upgrades</h2>
-    <div class="upgrade-wrapper">
-        <div class="upgrade_column_1">
-            <h3>Upgrade 1</h3>
-            <div class="upgrade upgrade-1">
-                <div class="upgrade-text">
-                    <p class="upgrade-p">+1 Ben per Click <br>
-                                        Cost : <span class="upgrade-1-cost">100</span> Bens
-                    </p>
-                    <button class="btns" id="points">Buy</button>
-                </div>
-            </div>
-            <h3>Upgrade 3</h3>
-            <div class="upgrade upgrade-3">
-                <div>
-                    <p class="upgrade-p">+3 Ben per Second <br>
-                                        Cost: <span id="upgrade_3_cost">200</span> Bens
-                    </p>
-                    <button class="btns" id="upgrade_3_buy">Buy</button>
-                </div>
-            </div>
+<body>
+    
+    <div class="game-container">
+        
+        <div class="top-section">
+            <p>Bens per Click: <span id="bens-per-click">1</span></p>
+            <p>Bens per Second: <span id="bens-per-second">0</span></p>
+            <img id="ben-img" src="assets/Ben-img.webp">
+        </div>
+        <div class="point-counter-container">
+            <div id="point-counter-container">0</div>
         </div>
 
-        <div class="upgrade_column_2">
-            <h3>Upgrade 2</h3>
-            <div class="upgrade upgrade-2">
-                <div>
-                    <p class="upgrade-p">+1 Ben per Second <br>
-                                        Cost: <span id="upgrade_2_cost">100</span> Bens
-                    </p>
-                    <button class="btns" id="upgrade_2_buy">Buy</button>
-                </div>
+            <h2>Upgrades</h2>
+            <div class="upgrade-container">
+            <div id="upgrade-1" class="upgrade">
+                <h3>Upgrade 1</h3>
+                <h4>+1 Bens per Click</h4>
+                <h6>Cost: <span id="upgrade-1-cost">100</span> Bens</h6>
+                <button id="upgrade-1-buy">Purchase</button>
+            </div>
+
+            <div id="upgrade-2" class="upgrade">
+                <h3>Upgrade 2</h3>
+                <h4>+1 Bens per Second</h4>
+                <h6>Cost: <span id="upgrade-2-cost">100</span> Bens</h6>
+                <button id="upgrade-2-buy">Purchase</button>
+            </div>
+
+            <div id="upgrade-3" class="upgrade">
+                <h3>Upgrade 3</h3>
+                <h4>+2 Bens per Second</h4>
+                <h6>Cost: <span id="upgrade-3-cost">200</span> Bens</h6>
+                <button id="upgrade-3-buy">Purchase</button>
+            </div>
+
+            <div id="upgrade-4" class="upgrade">
+                <h3>Upgrade 4</h3>
+                <h4>+5 Bens per Second</h4>
+                <h6>Cost: <span id="upgrade-4-cost">400</span> Bens</h6>
+                <button id="upgrade-4-buy">Purchase</button>
             </div>
         </div>
+        <button id="save-storage" class="data-buttons">Save</button>
+        <button id="reset" class="data-buttons">Reset</button>
     </div>
-  </div>
-    </body>
+
+    
+
+    <audio id="ben-audio" src="assets/ben-neu.ogg"></audio>
+    <audio src="assets/yes.ogg" id="yes-audio"></audio>
+    <audio src="assets/no.ogg" id="no-audio"></audio>
+</body>
 </html>
