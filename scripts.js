@@ -79,6 +79,7 @@ upgrade2BuyButton.addEventListener("click", () => {
          currentPoints += bensPerSecond;
          currentPoints = parseInt(currentPoints);
          pointCounter.textContent = currentPoints;
+         saveGame();
       }, 1000);
 
       yesAudio.play();
@@ -198,6 +199,7 @@ const loadGame = () => {
          currentPoints += bensPerSecond;
          currentPoints = parseInt(currentPoints);
          pointCounter.textContent = currentPoints;
+         saveGame();
       }, 1000);      
    }
 };
