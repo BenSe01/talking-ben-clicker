@@ -198,6 +198,12 @@ const loadGame = () => {
       upgrade2CostText.textContent = parseInt(upgrade2Cost);
       upgrade3CostText.textContent = parseInt(upgrade3Cost);
       upgrade4CostText.textContent = parseInt(upgrade4Cost);
+
+      setInterval(function() {
+         currentPoints += bensPerSecond;
+         currentPoints = parseInt(currentPoints);
+         pointCounter.textContent = currentPoints;
+      }, 1000);      
    }
 };
 
