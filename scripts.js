@@ -34,7 +34,7 @@ benBLACK.addEventListener("click", () => {
       benIMG.classList.remove("hidden");
       benBLACK.classList.add("hidden");
    }
-   
+
 
    benAUDIO.play();
    currentPoints += bensPerclick;
@@ -107,11 +107,12 @@ let upgrade1Cost = 100;
 upgrade1BuyButton.addEventListener("click", () => {
    if(currentPoints < upgrade1Cost) {
       noAudio.play();
+      noAudio.resume();
    }else {
       if(currentPoints < 5000) {
          benIMG.classList.remove("hidden");
          benBLACK.classList.add("hidden");
-      }   
+      }
    yesAudio.play();
    bensPerclick++;
    BPC.textContent = bensPerclick;
@@ -156,7 +157,7 @@ upgrade2BuyButton.addEventListener("click", () => {
       if(currentPoints < 5000) {
          benIMG.classList.remove("hidden");
          benBLACK.classList.add("hidden");
-      }   
+      }
    yesAudio.play();
    bensPerSecond++;
    BPS.textContent = bensPerSecond;
@@ -186,7 +187,7 @@ upgrade3BuyButton.addEventListener("click", () => {
       if(currentPoints < 5000) {
          benIMG.classList.remove("hidden");
          benBLACK.classList.add("hidden");
-      }   
+      }
 
    yesAudio.play();
    bensPerSecond += 2;
@@ -217,7 +218,7 @@ upgrade4BuyButton.addEventListener("click", () => {
       if(currentPoints < 5000) {
          benIMG.classList.remove("hidden");
          benBLACK.classList.add("hidden");
-      }   
+      }
 
    yesAudio.play();
    bensPerSecond += 5;
@@ -261,7 +262,7 @@ const loadGame = () => {
       BPC.textContent = bensPerclick;
       BPS.textContent = bensPerSecond;
       pointCounter.textContent = parseInt(currentPoints);
-      
+
       upgrade1Cost = gameData.upgrade1Cost;
       upgrade2Cost = gameData.upgrade2Cost;
       upgrade3Cost = gameData.upgrade3Cost;
@@ -276,7 +277,7 @@ const loadGame = () => {
          currentPoints += bensPerSecond;
          currentPoints = parseInt(currentPoints);
          pointCounter.textContent = currentPoints;
-      }, 1000);      
+      }, 1000);
    }
 };
 
@@ -298,6 +299,3 @@ resetButton.addEventListener("click", resetGame);
 
 loadGame();
 })
-
-
-
