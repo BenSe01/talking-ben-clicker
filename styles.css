@@ -61,6 +61,14 @@ html {
     margin-top: 1.5rem;
 }
 
+#ben-black {
+    width: 15rem;
+}
+
+.hidden {
+    display: none;
+}
+
 .top-section > img:active {
     transform: translateY(-5px)
 }

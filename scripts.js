@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const benAUDIO = document.getElementById("ben-audio");
 const benIMG = document.getElementById("ben-img");
+const benBLACK = document.getElementById("ben-black")
 const BPC = document.getElementById("bens-per-click");
 const BPS = document.getElementById("bens-per-second");
 // Bens per Click / Bens Per Second
@@ -16,12 +17,32 @@ let currentPoints = 0;
 
 // Adds Points and Plays Audio on Click
 benIMG.addEventListener("click", () => {
+   if(currentPoints >= 4999) {
+      benIMG.classList.add("hidden");
+      benBLACK.classList.remove("hidden");
+      console.log("Pic change")
+   }
    benAUDIO.play();
    currentPoints += bensPerclick;
    currentPoints = parseInt(currentPoints);
    pointCounter.textContent = currentPoints;
    saveGame();
 })
+
+benBLACK.addEventListener("click", () => {
+   if(currentPoints < 5000) {
+      benIMG.classList.remove("hidden");
+      benBLACK.classList.add("hidden");
+   }
+   
+
+   benAUDIO.play();
+   currentPoints += bensPerclick;
+   currentPoints = parseInt(currentPoints);
+   pointCounter.textContent = currentPoints;
+   saveGame();
+})
+
 
 // Adds Points when pressing Spacebar
 
@@ -87,6 +108,10 @@ upgrade1BuyButton.addEventListener("click", () => {
    if(currentPoints < upgrade1Cost) {
       noAudio.play();
    }else {
+      if(currentPoints < 5000) {
+         benIMG.classList.remove("hidden");
+         benBLACK.classList.add("hidden");
+      }   
    yesAudio.play();
    bensPerclick++;
    BPC.textContent = bensPerclick;
@@ -128,6 +153,10 @@ upgrade2BuyButton.addEventListener("click", () => {
       upgrade2CostText.textContent = parseInt(upgrade2CostText.textContent);
       }
    else {
+      if(currentPoints < 5000) {
+         benIMG.classList.remove("hidden");
+         benBLACK.classList.add("hidden");
+      }   
    yesAudio.play();
    bensPerSecond++;
    BPS.textContent = bensPerSecond;
@@ -154,6 +183,11 @@ upgrade3BuyButton.addEventListener("click", () => {
    }else if(currentPoints < upgrade3Cost) {
       noAudio.play();
    }else {
+      if(currentPoints < 5000) {
+         benIMG.classList.remove("hidden");
+         benBLACK.classList.add("hidden");
+      }   
+
    yesAudio.play();
    bensPerSecond += 2;
    BPS.textContent = bensPerSecond;
@@ -180,6 +214,11 @@ upgrade4BuyButton.addEventListener("click", () => {
    }else if(currentPoints < upgrade4Cost) {
       noAudio.play();
    }else {
+      if(currentPoints < 5000) {
+         benIMG.classList.remove("hidden");
+         benBLACK.classList.add("hidden");
+      }   
+
    yesAudio.play();
    bensPerSecond += 5;
    BPS.textContent = bensPerSecond;
