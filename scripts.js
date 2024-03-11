@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 const benAUDIO = document.getElementById("ben-audio");
+const eughAudio = document.getElementById("eugh-audio");
 const benIMG = document.getElementById("ben-img");
 const benBLACK = document.getElementById("ben-black")
 const BPC = document.getElementById("bens-per-click");
@@ -14,14 +15,17 @@ let bensPerclick = 1;
 let bensPerSecond = 0;
 let currentPoints = 0;
 
+let eughPlayed = false;
 
 // Adds Points and Plays Audio on Click
 benIMG.addEventListener("click", () => {
-   if(currentPoints >= 4999) {
+   if(currentPoints >= 5000 && eughPlayed === false) {
+      eughAudio.play();
       benIMG.classList.add("hidden");
       benBLACK.classList.remove("hidden");
-      console.log("Pic change")
-   }
+      eughPlayed = true;
+   };
+
    benAUDIO.play();
    currentPoints += bensPerclick;
    currentPoints = parseInt(currentPoints);
@@ -30,10 +34,12 @@ benIMG.addEventListener("click", () => {
 })
 
 benBLACK.addEventListener("click", () => {
-   if(currentPoints < 5000) {
+   if(currentPoints < 5000 && eughPlayed === true) {
+      eughAudio.play();
       benIMG.classList.remove("hidden");
       benBLACK.classList.add("hidden");
-   }
+      eughPlayed = false;
+   };
 
 
    benAUDIO.play();
@@ -66,7 +72,8 @@ let isMuted = false;
 function muteGame() {
    benAUDIO.muted = true;
    yesAudio.muted = true;
-   noAudio.muted = true
+   noAudio.muted = true;
+   eughAudio.muted = true;
    isMuted = true;
 }
 
@@ -283,9 +290,16 @@ const loadGame = () => {
          currentPoints = parseInt(currentPoints);
          pointCounter.textContent = currentPoints;
 
-         if(currentPoints >= 5000) {
+         if(currentPoints >= 5000 && eughPlayed == false) {
             benIMG.classList.add("hidden");
             benBLACK.classList.remove("hidden");
+            eughAudio.play();
+            eughPlayed = true;
+         }else if (currentPoints < 5000 && eughPlayed == true) {
+            benIMG.classList.remove("hidden");
+            benBLACK.classList.add("hidden");
+            eughAudio.play();
+            eughPlayed = false;
          }
 
       }, 1000);
