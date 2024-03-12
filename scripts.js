@@ -7,6 +7,7 @@ const benIMG = document.getElementById("ben-img");
 const benBLACK = document.getElementById("ben-black")
 const BPC = document.getElementById("bens-per-click");
 const BPS = document.getElementById("bens-per-second");
+
 // Bens per Click / Bens Per Second
 
 const pointCounter = document.getElementById("point-counter-container");
@@ -68,7 +69,6 @@ document.addEventListener("keyup", (event) => {
 const muteButton = document.getElementById("mute-button");
 let isMuted = false;
 
-
 function muteGame() {
    benAUDIO.muted = true;
    yesAudio.muted = true;
@@ -108,7 +108,9 @@ const noAudio = document.getElementById("no-audio");
 
 const upgrade1BuyButton = document.getElementById("upgrade-1-buy");
 const upgrade1CostText = document.getElementById("upgrade-1-cost");
+const upgrade1Bens = document.getElementById("upgrade-1-bens");
 let upgrade1Cost = 100;
+let upgrade1Points = 1;
 
 
 upgrade1BuyButton.addEventListener("click", () => {
@@ -121,14 +123,17 @@ upgrade1BuyButton.addEventListener("click", () => {
          benBLACK.classList.add("hidden");
       }
    yesAudio.play();
-   bensPerclick++;
+   bensPerclick += upgrade1Points;
    BPC.textContent = bensPerclick;
    currentPoints -= upgrade1Cost;
    pointCounter.textContent = currentPoints;
    pointCounter.textContent = parseInt(pointCounter.textContent);
-   upgrade1Cost *= 1.25;
+   upgrade1Cost *= 1.5;
    upgrade1CostText.textContent = upgrade1Cost;
    upgrade1CostText.textContent = parseInt(upgrade1CostText.textContent);
+   upgrade1Points++;
+   upgrade1Bens.textContent = upgrade1Points;
+   upgrade1Bens.textContent = parseInt(upgrade1Bens.textContent);
    }
 })
 
@@ -136,7 +141,11 @@ upgrade1BuyButton.addEventListener("click", () => {
 
 const upgrade2BuyButton = document.getElementById("upgrade-2-buy");
 const upgrade2CostText = document.getElementById("upgrade-2-cost");
+const upgrade2Bens = document.getElementById("upgrade-2-bens");
 let upgrade2Cost = 100;
+let upgrade2Points = 1;
+
+
 
 
 upgrade2BuyButton.addEventListener("click", () => {
@@ -156,14 +165,18 @@ upgrade2BuyButton.addEventListener("click", () => {
       }, 1000);
 
       yesAudio.play();
-      bensPerSecond++;
+      bensPerSecond += upgrade2Points;
       BPS.textContent = bensPerSecond;
       currentPoints -= upgrade2Cost;
       pointCounter.textContent = currentPoints;
       pointCounter.textContent = parseInt(pointCounter.textContent);
-      upgrade2Cost *= 1.25;
+      upgrade2Cost *= 1.5;
       upgrade2CostText.textContent = upgrade2Cost;
       upgrade2CostText.textContent = parseInt(upgrade2CostText.textContent);
+      upgrade2Points++;
+      upgrade2Bens.textContent = upgrade2Points;
+      upgrade2Bens.textContent = parseInt(upgrade2Bens.textContent);
+
       }
    else {
       if(currentPoints < 5000) {
@@ -171,14 +184,17 @@ upgrade2BuyButton.addEventListener("click", () => {
          benBLACK.classList.add("hidden");
       }
    yesAudio.play();
-   bensPerSecond++;
+   bensPerSecond += upgrade2Points;
    BPS.textContent = bensPerSecond;
    currentPoints -= upgrade2Cost;
    pointCounter.textContent = currentPoints;
    pointCounter.textContent = parseInt(pointCounter.textContent);
-   upgrade2Cost *= 1.25;
+   upgrade2Cost *= 1.5;
    upgrade2CostText.textContent = upgrade2Cost;
    upgrade2CostText.textContent = parseInt(upgrade2CostText.textContent);
+   upgrade2Points++;
+   upgrade2Bens.textContent = upgrade2Points;
+   upgrade2Bens.textContent = parseInt(upgrade2Bens.textContent);
    }
 })
 
@@ -187,7 +203,9 @@ upgrade2BuyButton.addEventListener("click", () => {
 
 const upgrade3BuyButton = document.getElementById("upgrade-3-buy");
 const upgrade3CostText = document.getElementById("upgrade-3-cost");
+const upgrade3Bens = document.getElementById("upgrade-3-bens");
 let upgrade3Cost = 200;
+let upgrade3Points = 2;
 
 upgrade3BuyButton.addEventListener("click", () => {
    if(upgrade2Cost === 100) {
@@ -202,14 +220,17 @@ upgrade3BuyButton.addEventListener("click", () => {
       }
 
    yesAudio.play();
-   bensPerSecond += 2;
+   bensPerSecond += upgrade3Points;
    BPS.textContent = bensPerSecond;
    currentPoints -= upgrade3Cost;
    pointCounter.textContent = currentPoints;
    pointCounter.textContent = parseInt(pointCounter.textContent);
-   upgrade3Cost *= 1.2;
+   upgrade3Cost *= 1.3;
    upgrade3CostText.textContent = upgrade3Cost;
    upgrade3CostText.textContent = parseInt(upgrade3CostText.textContent);
+   upgrade3Points += 2;
+   upgrade3Bens.textContent = upgrade3Points;
+   upgrade3Bens.textContent = parseInt(upgrade3Bens.textContent);
    }
 })
 
@@ -218,7 +239,9 @@ upgrade3BuyButton.addEventListener("click", () => {
 
 const upgrade4BuyButton = document.getElementById("upgrade-4-buy");
 const upgrade4CostText = document.getElementById("upgrade-4-cost");
+const upgrade4Bens = document.getElementById("upgrade-4-bens");
 let upgrade4Cost = 400;
+let upgrade4Points = 5;
 
 upgrade4BuyButton.addEventListener("click", () => {
    if(upgrade2Cost === 100) {
@@ -233,14 +256,17 @@ upgrade4BuyButton.addEventListener("click", () => {
       }
 
    yesAudio.play();
-   bensPerSecond += 5;
+   bensPerSecond += upgrade4Points;
    BPS.textContent = bensPerSecond;
    currentPoints -= upgrade4Cost;
    pointCounter.textContent = currentPoints;
    pointCounter.textContent = parseInt(pointCounter.textContent);
-   upgrade4Cost *= 1.2;
+   upgrade4Cost *= 1.3;
    upgrade4CostText.textContent = upgrade4Cost;
    upgrade4CostText.textContent = parseInt(upgrade4CostText.textContent);
+   upgrade4Points += 5;
+   upgrade4Bens.textContent = upgrade4Points;
+   upgrade4Bens.textContent = parseInt(upgrade4Bens.textContent);
    }
 })
 
@@ -256,12 +282,17 @@ const saveGame = () => {
       upgrade2Cost: upgrade2Cost,
       upgrade3Cost: upgrade3Cost,
       upgrade4Cost: upgrade4Cost,
+
+      upgrade1Points: upgrade1Points,
+      upgrade2Points: upgrade2Points,
+      upgrade3Points: upgrade3Points,
+      upgrade4Points: upgrade4Points,
    };
    localStorage.setItem("gameData", JSON.stringify(gameData));
    console.log("Game Saved")
 };
 
-setInterval(saveGame, 60000);
+setInterval(saveGame, 30000);
 
 const loadGame = () => {
    const savedData = localStorage.getItem("gameData");
@@ -284,6 +315,16 @@ const loadGame = () => {
       upgrade2CostText.textContent = parseInt(upgrade2Cost);
       upgrade3CostText.textContent = parseInt(upgrade3Cost);
       upgrade4CostText.textContent = parseInt(upgrade4Cost);
+
+      upgrade1Points = gameData.upgrade1Points;
+      upgrade2Points = gameData.upgrade2Points;
+      upgrade3Points = gameData.upgrade3Points;
+      upgrade4Points = gameData.upgrade4Points;
+
+      upgrade1Points.textContent = parseInt(upgrade1Points);
+      upgrade2Points.textContent = parseInt(upgrade2Points);
+      upgrade3Points.textContent = parseInt(upgrade3Points);
+      upgrade4Points.textContent = parseInt(upgrade4Points);
 
       setInterval(function() {
          currentPoints += bensPerSecond;
