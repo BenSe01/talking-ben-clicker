@@ -22,7 +22,6 @@ html {
     touch-action: manipulation;
   }
 
-
 .game-container {
     background-color: rgba(211, 211, 211, 70%);
     margin: 0.5rem auto;

@@ -12,10 +12,10 @@ const BPS = document.getElementById("bens-per-second");
 
 const pointCounter = document.getElementById("point-counter-container");
 
-let bensPerclick = 10000;
+// Initial Game Settings
+let bensPerclick = 1;
 let bensPerSecond = 0;
 let currentPoints = 0;
-
 let eughPlayed = false;
 
 // Adds Points and Plays Audio on Click
@@ -64,8 +64,7 @@ document.addEventListener("keyup", (event) => {
 });
 
 
-// Mute Game
-
+// Mute / Unmute functionality
 const muteButton = document.getElementById("mute-button");
 let isMuted = false;
 
@@ -100,7 +99,6 @@ muteButton.addEventListener("click",() => {
 })
 
 // Upgrades
-
 const yesAudio = document.getElementById("yes-audio");
 const noAudio = document.getElementById("no-audio");
 
@@ -110,7 +108,7 @@ const upgrade1BuyButton = document.getElementById("upgrade-1-buy");
 const upgrade1CostText = document.getElementById("upgrade-1-cost");
 const upgrade1Bens = document.getElementById("upgrade-1-bens");
 let upgrade1Cost = 100;
-let upgrade1Points = 1;
+let upgrade1Points = 5;
 
 
 upgrade1BuyButton.addEventListener("click", () => {
@@ -131,7 +129,7 @@ upgrade1BuyButton.addEventListener("click", () => {
    upgrade1Cost *= 1.5;
    upgrade1CostText.textContent = upgrade1Cost;
    upgrade1CostText.textContent = parseInt(upgrade1CostText.textContent);
-   upgrade1Points++;
+   upgrade1Points += 3;
    upgrade1Bens.textContent = upgrade1Points;
    upgrade1Bens.textContent = parseInt(upgrade1Bens.textContent);
    }
@@ -144,9 +142,6 @@ const upgrade2CostText = document.getElementById("upgrade-2-cost");
 const upgrade2Bens = document.getElementById("upgrade-2-bens");
 let upgrade2Cost = 100;
 let upgrade2Points = 1;
-
-
-
 
 upgrade2BuyButton.addEventListener("click", () => {
    if(currentPoints < upgrade2Cost) {
@@ -198,7 +193,6 @@ upgrade2BuyButton.addEventListener("click", () => {
    }
 })
 
-
 // Upgrade 3
 
 const upgrade3BuyButton = document.getElementById("upgrade-3-buy");
@@ -233,7 +227,6 @@ upgrade3BuyButton.addEventListener("click", () => {
    upgrade3Bens.textContent = parseInt(upgrade3Bens.textContent);
    }
 })
-
 
 // Upgrade 4
 
@@ -270,9 +263,7 @@ upgrade4BuyButton.addEventListener("click", () => {
    }
 })
 
-
 // localStorage to save and load game data
-
 const saveGame = () => {
    const gameData = {
       bensPerclick: bensPerclick,
@@ -347,7 +338,6 @@ const loadGame = () => {
    }
 };
 
-
 const resetButton = document.getElementById("reset");
 
 const resetGame = () => {
@@ -361,7 +351,6 @@ const resetGame = () => {
 }
 
 resetButton.addEventListener("click", resetGame);
-
 
 loadGame();
 })
