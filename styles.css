@@ -25,7 +25,7 @@ html {
 
 .game-container {
     background-color: rgba(211, 211, 211, 70%);
-    margin: 2rem auto;
+    margin: 0.5rem auto;
     text-align: center;
     width: 25rem;
     border-radius: 15%;
@@ -62,7 +62,9 @@ html {
 }
 
 #ben-black {
+    margin-top: 1.5rem;
     width: 15rem;
+    height: 15rem;
 }
 
 .hidden {
@@ -88,6 +90,7 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(auto 1fr);
+    gap: 1rem;
 }
 
 .upgrade-container button {

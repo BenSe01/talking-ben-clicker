@@ -12,7 +12,7 @@ const BPS = document.getElementById("bens-per-second");
 
 const pointCounter = document.getElementById("point-counter-container");
 
-let bensPerclick = 1;
+let bensPerclick = 10000;
 let bensPerSecond = 0;
 let currentPoints = 0;
 
@@ -20,7 +20,7 @@ let eughPlayed = false;
 
 // Adds Points and Plays Audio on Click
 benIMG.addEventListener("click", () => {
-   if(currentPoints >= 5000 && eughPlayed === false) {
+   if(currentPoints >= 50000 && eughPlayed === false) {
       eughAudio.play();
       benIMG.classList.add("hidden");
       benBLACK.classList.remove("hidden");
@@ -35,7 +35,7 @@ benIMG.addEventListener("click", () => {
 })
 
 benBLACK.addEventListener("click", () => {
-   if(currentPoints < 5000 && eughPlayed === true) {
+   if(currentPoints < 50000 && eughPlayed === true) {
       eughAudio.play();
       benIMG.classList.remove("hidden");
       benBLACK.classList.add("hidden");
@@ -118,7 +118,7 @@ upgrade1BuyButton.addEventListener("click", () => {
       noAudio.play();
       noAudio.resume();
    }else {
-      if(currentPoints < 5000) {
+      if(currentPoints < 50000) {
          benIMG.classList.remove("hidden");
          benBLACK.classList.add("hidden");
       }
@@ -158,7 +158,7 @@ upgrade2BuyButton.addEventListener("click", () => {
          currentPoints = parseInt(currentPoints);
          pointCounter.textContent = currentPoints;
 
-         if(currentPoints >= 5000) {
+         if(currentPoints >= 50000) {
             benIMG.classList.add("hidden");
             benBLACK.classList.remove("hidden");
          }
@@ -179,7 +179,7 @@ upgrade2BuyButton.addEventListener("click", () => {
 
       }
    else {
-      if(currentPoints < 5000) {
+      if(currentPoints < 50000) {
          benIMG.classList.remove("hidden");
          benBLACK.classList.add("hidden");
       }
@@ -214,7 +214,7 @@ upgrade3BuyButton.addEventListener("click", () => {
    }else if(currentPoints < upgrade3Cost) {
       noAudio.play();
    }else {
-      if(currentPoints < 5000) {
+      if(currentPoints < 50000) {
          benIMG.classList.remove("hidden");
          benBLACK.classList.add("hidden");
       }
@@ -250,7 +250,7 @@ upgrade4BuyButton.addEventListener("click", () => {
    }else if(currentPoints < upgrade4Cost) {
       noAudio.play();
    }else {
-      if(currentPoints < 5000) {
+      if(currentPoints < 50000) {
          benIMG.classList.remove("hidden");
          benBLACK.classList.add("hidden");
       }
@@ -321,22 +321,22 @@ const loadGame = () => {
       upgrade3Points = gameData.upgrade3Points;
       upgrade4Points = gameData.upgrade4Points;
 
-      upgrade1Points.textContent = parseInt(upgrade1Points);
-      upgrade2Points.textContent = parseInt(upgrade2Points);
-      upgrade3Points.textContent = parseInt(upgrade3Points);
-      upgrade4Points.textContent = parseInt(upgrade4Points);
+      upgrade1Bens.textContent = parseInt(upgrade1Points);
+      upgrade2Bens.textContent = parseInt(upgrade2Points);
+      upgrade3Bens.textContent = parseInt(upgrade3Points);
+      upgrade4Bens.textContent = parseInt(upgrade4Points);
 
       setInterval(function() {
          currentPoints += bensPerSecond;
          currentPoints = parseInt(currentPoints);
          pointCounter.textContent = currentPoints;
 
-         if(currentPoints >= 5000 && eughPlayed == false) {
+         if(currentPoints >= 500000 && eughPlayed == false) {
             benIMG.classList.add("hidden");
             benBLACK.classList.remove("hidden");
             eughAudio.play();
             eughPlayed = true;
-         }else if (currentPoints < 5000 && eughPlayed == true) {
+         }else if (currentPoints < 500000 && eughPlayed == true) {
             benIMG.classList.remove("hidden");
             benBLACK.classList.add("hidden");
             eughAudio.play();
