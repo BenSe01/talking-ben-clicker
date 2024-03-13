@@ -25,6 +25,7 @@ benIMG.addEventListener("click", () => {
       benIMG.classList.add("hidden");
       benBLACK.classList.remove("hidden");
       eughPlayed = true;
+      console.log("Image changed")
    };
 
    benAUDIO.play();
@@ -322,12 +323,12 @@ const loadGame = () => {
          currentPoints = parseInt(currentPoints);
          pointCounter.textContent = currentPoints;
 
-         if(currentPoints >= 500000 && eughPlayed == false) {
+         if(currentPoints >= 50000 && eughPlayed == false) {
             benIMG.classList.add("hidden");
             benBLACK.classList.remove("hidden");
             eughAudio.play();
             eughPlayed = true;
-         }else if (currentPoints < 500000 && eughPlayed == true) {
+         }else if (currentPoints < 50000 && eughPlayed == true) {
             benIMG.classList.remove("hidden");
             benBLACK.classList.add("hidden");
             eughAudio.play();
